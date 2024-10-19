@@ -1,11 +1,10 @@
 <?php
-// 02_dfs.php
+// 05_graph_representation.php
 
 /**
- * Depth First Search (DFS)
+ * Graph Representation
  * 
- * DFS explores as far down a branch as possible before backtracking.
- * We implement it using a recursive approach.
+ * We represent a graph using an adjacency list where each node points to its neighbors.
  */
 
 class Graph {
@@ -35,27 +34,15 @@ class Graph {
         $this->adjList[$vertex2][] = $vertex1; // For undirected graph
     }
 
-    // Depth First Search (DFS)
-    public function dfs($vertex, &$visited) {
-        echo "$vertex ";
-
-        $visited[$vertex] = true;
-
-        foreach ($this->adjList[$vertex] as $neighbor) {
-            if (!$visited[$neighbor]) {
-                $this->dfs($neighbor, $visited);
-            }
+    // Display the graph
+    public function display() {
+        foreach ($this->adjList as $vertex => $neighbors) {
+            echo "$vertex: " . implode(", ", $neighbors) . "\n";
         }
-    }
-
-    // Start DFS from a given vertex
-    public function startDFS($startVertex) {
-        $visited = array_fill_keys(array_keys($this->adjList), false);
-        $this->dfs($startVertex, $visited);
     }
 }
 
-// Testing DFS
+// Testing the graph representation
 $graph = new Graph();
 $graph->addEdge('A', 'B');
 $graph->addEdge('A', 'C');
@@ -63,7 +50,15 @@ $graph->addEdge('B', 'D');
 $graph->addEdge('C', 'D');
 $graph->addEdge('D', 'E');
 
-echo "DFS Traversal Starting from Vertex A: ";
-$graph->startDFS('A'); // Output: A B D E C
+echo "Graph Representation (Adjacency List):\n";
+$graph->display();
 
+/**
+ * Output:
+ * A: B, C
+ * B: A, D
+ * C: A, D
+ * D: B, C, E
+ * E: D
+ */
 ?>
