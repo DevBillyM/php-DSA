@@ -1,9 +1,3 @@
-### Step 2: Plan Project Introduction
-
-Here’s a draft outline for your README file to introduce the project and explain the purpose to beginners.
-
----
-
 # PHP DSA (Data Structures & Algorithms) – Beginner's Guide
 
 ## Project Overview
