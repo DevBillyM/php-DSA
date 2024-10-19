@@ -56,7 +56,7 @@ To follow along, you should have:
 1. **Clone this repository:**
 
    ```bash
-   git clone https://github.com/DevBillyM/php-DSA.git
+   git clone https://github.com/DevBillyM/php-DSA
    cd php-DSA
    ```
 
